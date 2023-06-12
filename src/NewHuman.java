@@ -27,7 +27,7 @@ public class NewHuman {
         birthdate = scanner.nextLine();
         System.out.println("ethnicities :");
         ethnicities = scanner.nextLine();
-        System.out.println("deathdate :");
+        System.out.println("deathdate (dd/mm/yyyy) if not deat yet write (00/00/0000) :");
         deathdate = scanner.nextLine();
         saveToFile( name ,  birthdate ,  sex ,  country ,  number ,  nationality ,  ethnicities ,  deathdate);
         scanner.close();

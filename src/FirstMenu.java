@@ -5,21 +5,22 @@ public class FirstMenu {
         System.out.println("====>Welcome to Human & Natural Resource program<====");
         System.out.println("\t1.SignUp\n\t2.LogIn\n\t3.Exit\n==>Please enter the number of your choice : ");
         Scanner scanner = new Scanner(System.in);
-        int choice = scanner.nextInt();
+        String choice = scanner.nextLine();
+
         switch (choice) {
-            case 1:
+            case "1":
                 SignUp signup = new SignUp();
                 signup.signup();
-                scanner.close();
-                break;
-            case 2:
+            case "2":
                 LogIn login = new LogIn();
                 login.login();
-                scanner.close();
+                System.out.println("FirstMenu.java:16");
+                SecondMenu secondmenu = new SecondMenu();
+                secondmenu.Secondmenu();
                 break;
-            case 3:
-                scanner.close();
-                break;
+            case "3":
+            break;
         }
+        scanner.close();
     }
 }
