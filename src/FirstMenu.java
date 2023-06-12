@@ -6,7 +6,6 @@ public class FirstMenu {
         System.out.println("\t1.SignUp\n\t2.LogIn\n\t3.Exit\n==>Please enter the number of your choice : ");
         Scanner scanner = new Scanner(System.in);
         String choice = scanner.nextLine();
-
         switch (choice) {
             case "1":
                 SignUp signup = new SignUp();

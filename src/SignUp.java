@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class SignUp {
     void signup() {
+        System.out.flush();
         String UserName;
         String Password;
         String ConfirmPassword;

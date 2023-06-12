@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class NewPlant {
     void newplant(){
+        System.out.flush();
         String name;
         String country;
         String type;

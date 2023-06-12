@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class NewGeographic {
     void newgeographic(){
+        System.out.flush();
         String name;
         String type;
         String country;

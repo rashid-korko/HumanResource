@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class NewResourceMenu {
     void newresourcemenu()throws IOException {
+        System.out.flush();
         System.out.println("====>Welcome to New Resource main menu<====");
         System.out.println("\t1.New Human\n\t2.New Animal\n\t3.New Plant\n\t4.New Geographic\n\t5.Exit\n==>Please enter the number of your choice : ");
         Scanner scanner = new Scanner(System.in);

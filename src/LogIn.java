@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 
 public class LogIn {
     void login(){
+        System.out.flush();
         String userName;
         String password;
         boolean LogInChecke = false;

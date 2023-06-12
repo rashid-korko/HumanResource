@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class NewAnimal {
     void newanimal(){
+        System.out.flush();
         String kind;
         String type;
         String birthdate;

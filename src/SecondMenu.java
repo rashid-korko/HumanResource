@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class SecondMenu {
     void Secondmenu()throws IOException {
+        System.out.flush();
         Scanner scanner_01 = new Scanner(System.in);
         System.out.println("====>Welcome to Human & Natural Resource main menu<====");
         System.out.println("\t1.New resource menu\n"+

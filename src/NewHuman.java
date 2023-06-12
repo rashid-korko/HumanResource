@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class NewHuman {
     void newhuman(){
+        System.out.flush();
         String name;
         String birthdate;
         String sex;
