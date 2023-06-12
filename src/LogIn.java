@@ -9,15 +9,12 @@ public class LogIn {
         String password;
         boolean LogInChecke = false;
         do{
-
-            Scanner scanner_login = new Scanner(System.in);
             File userFile = new File("UserFile.txt");
             System.out.println("====>Welcome to the login page<====\n\n");
             System.out.println("Username : ");
-            userName = scanner_login.nextLine();
+            userName = KeyBoard.nextLine();
             System.out.println("Password : ");
-            password = scanner_login.nextLine();
-            scanner_login.close();
+            password = KeyBoard.nextLine();
             
             try (Scanner fileScanner = new Scanner(userFile)) {
                 while (fileScanner.hasNextLine()) {
