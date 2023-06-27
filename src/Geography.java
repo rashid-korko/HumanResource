@@ -4,6 +4,7 @@ public class Geography extends Obeject {
     String Type;
     String Area;
     
+    
     void Insert(){
         SaveInFile(Name,Type,Country,Area);
     }

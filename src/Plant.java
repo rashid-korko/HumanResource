@@ -4,6 +4,7 @@ public class Plant extends Obeject {
     String Type;
     String Species;
     
+    
     void Insert(){
         SaveInFile(Name,Country,Type,Species);
     }

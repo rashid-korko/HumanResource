@@ -6,6 +6,7 @@ public class Human extends Obeject {
     String Ethnicities;
     
     
+    
     void Insert(){
         SaveInFile(Name,Sex,Birthdate,Country,Ethnicities);
     }
