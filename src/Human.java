@@ -4,9 +4,7 @@ public class Human extends Obeject {
     String Sex;
     String Birthdate;
     String Ethnicities;
-    
-    
-    
+
     void Insert(){
         SaveInFile(Name,Sex,Birthdate,Country,Ethnicities);
     }
