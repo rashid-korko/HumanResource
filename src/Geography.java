@@ -13,6 +13,7 @@ public class Geography extends Obeject {
         try (RandomAccessFile file = new RandomAccessFile("Geography.bin", "rw")) {
             while (file.getFilePointer() < file.length()) {
                 Name = file.readUTF();
+                Long seek_pointer = file.getFilePointer();
                 Type = file.readUTF();
                 Country = file.readUTF();
                 Area = file.readUTF();
@@ -29,7 +30,7 @@ public class Geography extends Obeject {
                     String NewCountry = KeyBoard.nextLine();
                     System.out.print("Area :");
                     String NewArea = KeyBoard.nextLine();
-                    file.seek(file.getFilePointer() - 6 * 2);
+                    file.seek(seek_pointer);
                     file.writeUTF(Name);
                     file.writeUTF(NewType);
                     file.writeUTF(NewCountry);
