@@ -13,6 +13,7 @@ public class Human extends Obeject {
         try (RandomAccessFile file = new RandomAccessFile("Human.bin", "rw")) {
             while (file.getFilePointer() < file.length()) {
                 Name = file.readUTF();
+                Long seek_pointer = file.getFilePointer();
                 Sex = file.readUTF();
                 Birthdate = file.readUTF();
                 Country = file.readUTF();
@@ -33,8 +34,7 @@ public class Human extends Obeject {
                     String NewCountry = KeyBoard.nextLine();
                     System.out.print("ethnicities :");
                     String NewEthnicities = KeyBoard.nextLine();
-                    file.seek(file.getFilePointer() - 6 * 2);
-                    file.writeUTF(Name);
+                    file.seek(seek_pointer);
                     file.writeUTF(NewSex);
                     file.writeUTF(NewBirthdate);
                     file.writeUTF(NewCountry);

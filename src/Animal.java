@@ -13,6 +13,7 @@ public class Animal extends Obeject {
         try (RandomAccessFile file = new RandomAccessFile("Animal.bin", "rw")) {
             while (file.getFilePointer() < file.length()) {
                 Name = file.readUTF();
+                Long seek_pointer = file.getFilePointer();
                 Type = file.readUTF();
                 Sex = file.readUTF();
                 Country = file.readUTF();
@@ -33,7 +34,7 @@ public class Animal extends Obeject {
                     String NewCountry = KeyBoard.nextLine();
                     System.out.print("Number :");
                     String NewNumber = KeyBoard.nextLine();
-                    file.seek(file.getFilePointer() - 6 * 2);
+                    file.seek(seek_pointer);
                     file.writeUTF(Name);
                     file.writeUTF(NewType);
                     file.writeUTF(NewSex);

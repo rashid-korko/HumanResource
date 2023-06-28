@@ -13,6 +13,7 @@ public class Plant extends Obeject {
         try (RandomAccessFile file = new RandomAccessFile("Plant.bin", "rw")) {
             while (file.getFilePointer() < file.length()) {
                 Name = file.readUTF();
+                Long seek_pointer = file.getFilePointer();
                 Country = file.readUTF();
                 Type = file.readUTF();
                 Species = file.readUTF();
@@ -29,7 +30,7 @@ public class Plant extends Obeject {
                     String NewType = KeyBoard.nextLine();
                     System.out.print("Species :");
                     String NewSpecies = KeyBoard.nextLine();
-                    file.seek(file.getFilePointer() - 6 * 2);
+                    file.seek(seek_pointer);
                     file.writeUTF(Name);
                     file.writeUTF(NewCountry);
                     file.writeUTF(NewType);
