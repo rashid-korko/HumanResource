@@ -16,10 +16,10 @@ public class App {
                 EditDataMenu editdatamenu = new EditDataMenu();
                 editdatamenu.editdatamenu();
                 break;
-            // case "3":
-            //     ReportsMenu reportsmenu = new ReportsMenu();
-            //     reportsmenu.reportsmenu();
-            //     break;
+            case "3":
+                ReportsMenu reportsmenu = new ReportsMenu();
+                reportsmenu.reportsmenu();
+                break;
             case "4":
                 break;
         }

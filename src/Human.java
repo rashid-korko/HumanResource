@@ -4,11 +4,21 @@ public class Human extends Obeject {
     String Sex;
     String Birthdate;
     String Ethnicities;
-    
+    String SearchSex;
+    String SearchEthnicities;
+    int count = 0;
     
     
     void Insert(){
-        SaveInFile(Name,Sex,Birthdate,Country,Ethnicities);
+        try (DataOutputStream output = new DataOutputStream(new BufferedOutputStream(new FileOutputStream("Human.bin", true)))) {
+            output.writeUTF(Name);
+            output.writeUTF(Sex);
+            output.writeUTF(Birthdate);
+            output.writeUTF(Country);
+            output.writeUTF(Ethnicities);
+        } catch (IOException ex) {
+            System.err.println("Error writing to file: " + ex.getMessage());
+        }
     }
 
     void Edit(){
@@ -50,15 +60,82 @@ public class Human extends Obeject {
         }
     }
 
-    void SaveInFile(String Name,String Sex,String Birthdate,String Country,String Ethnicities){
-        try (DataOutputStream output = new DataOutputStream(new BufferedOutputStream(new FileOutputStream("Human.bin", true)))) {
-            output.writeUTF(Name);
-            output.writeUTF(Sex);
-            output.writeUTF(Birthdate);
-            output.writeUTF(Country);
-            output.writeUTF(Ethnicities);
+    void HumanSexReports(){
+        System.out.printf("this all data for %s :\n" , SearchSex);
+        try (RandomAccessFile file = new RandomAccessFile("Human.bin", "r")) {
+            while (file.getFilePointer() < file.length()) {
+                Name = file.readUTF();
+                Sex = file.readUTF();
+                Birthdate = file.readUTF();
+                Country = file.readUTF();
+                Ethnicities = file.readUTF();
+                if (Sex.equals(SearchSex)) {
+                    count++;
+                    System.out.println(count + "-");
+                    System.out.println(  "name : " + Name +
+                                       "\nsex : " + Sex +
+                                       "\nBirthday : " + Birthdate +
+                                       "\ncountry : " + Country +
+                                       "\nethnicities : " + Ethnicities);
+                    System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                }
+            }
         } catch (IOException ex) {
-            System.err.println("Error writing to file: " + ex.getMessage());
+            System.err.println("Error editing file: " + ex.getMessage());
         }
+        System.out.printf("we have %dth human of %s.....\n" , count , SearchSex);
     }
+
+    void HumanCountryReports(){
+        System.out.printf("this all data for %s :\n" , SearchCountry);
+        try (RandomAccessFile file = new RandomAccessFile("Human.bin", "r")) {
+            while (file.getFilePointer() < file.length()) {
+                Name = file.readUTF();
+                Sex = file.readUTF();
+                Birthdate = file.readUTF();
+                Country = file.readUTF();
+                Ethnicities = file.readUTF();
+                if (Country.equals(SearchCountry)) {
+                    count++;
+                    System.out.println(count + "-");
+                    System.out.println(  "name : " + Name +
+                                       "\nsex : " + Sex +
+                                       "\nBirthday : " + Birthdate +
+                                       "\ncountry : " + Country +
+                                       "\nethnicities : " + Ethnicities);
+                    System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                }
+            }
+        } catch (IOException ex) {
+            System.err.println("Error editing file: " + ex.getMessage());
+        }
+        System.out.printf("we have %dth human from %s.....\n" , count , SearchCountry);
+    }
+
+    void HumanEthnicitiesReports(){
+        System.out.printf("this all data for %s :\n" , SearchEthnicities);
+        try (RandomAccessFile file = new RandomAccessFile("Human.bin", "r")) {
+            while (file.getFilePointer() < file.length()) {
+                Name = file.readUTF();
+                Sex = file.readUTF();
+                Birthdate = file.readUTF();
+                Country = file.readUTF();
+                Ethnicities = file.readUTF();
+                if (Ethnicities.equals(SearchEthnicities)) {
+                    count++;
+                    System.out.println(count + "-");
+                    System.out.println(  "name : " + Name +
+                                       "\nsex : " + Sex +
+                                       "\nBirthday : " + Birthdate +
+                                       "\ncountry : " + Country +
+                                       "\nethnicities : " + Ethnicities);
+                    System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                }
+            }
+        } catch (IOException ex) {
+            System.err.println("Error editing file: " + ex.getMessage());
+        }
+        System.out.printf("we have %dth human %s.....\n" , count , SearchEthnicities);
+    }
+
 }
