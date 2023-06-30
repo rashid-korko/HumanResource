@@ -32,8 +32,16 @@ public class ReportsMenu {
                 human_ethnicities_reports.HumanEthnicitiesReports();
                 break;
             case "4":
+                Animal animal_sex_reports = new Animal();
+                System.out.print("please enter the sex of animal you want :");
+                animal_sex_reports.SearchSex = KeyBoard.nextLine();
+                animal_sex_reports.AnimalSexReports();
                 break;
             case "5":
+                Animal animal_country_reports = new Animal();
+                System.out.print("please enter the country of animal you want :");
+                animal_country_reports.SearchSex = KeyBoard.nextLine();
+                animal_country_reports.AnimalSexReports();
                 break;
             case "6":
                 break;

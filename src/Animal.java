@@ -4,9 +4,19 @@ public class Animal extends Obeject {
     String Type;
     String Sex;
     String Number;
+    String SearchSex;
+    int count = 0;
 
     void Insert(){
-        SaveInFile(Name,Type,Sex,Country,Number);
+        try (DataOutputStream output = new DataOutputStream(new BufferedOutputStream(new FileOutputStream("Animal.bin", true)))) {
+            output.writeUTF(Name);
+            output.writeUTF(Type);
+            output.writeUTF(Sex);
+            output.writeUTF(Country);
+            output.writeUTF(Number);
+        } catch (IOException ex) {
+            System.err.println("Error writing to file: " + ex.getMessage());
+        }
     }
 
     void Edit(){
@@ -49,15 +59,29 @@ public class Animal extends Obeject {
         }
     }
 
-    void SaveInFile(String Name,String Type,String Sex,String Country,String Number){
-        try (DataOutputStream output = new DataOutputStream(new BufferedOutputStream(new FileOutputStream("Animal.bin", true)))) {
-            output.writeUTF(Name);
-            output.writeUTF(Type);
-            output.writeUTF(Sex);
-            output.writeUTF(Country);
-            output.writeUTF(Number);
+    void AnimalSexReports(){
+        System.out.printf("this all data for %s :\n" , SearchSex);
+        try (RandomAccessFile file = new RandomAccessFile("Animal.bin", "r")) {
+            while (file.getFilePointer() < file.length()) {
+                Name = file.readUTF();
+                Type = file.readUTF();
+                Sex = file.readUTF();
+                Country = file.readUTF();
+                Number = file.readUTF();
+                if (Sex.equals(SearchSex)) {
+                    count++;
+                    System.out.println(count + "-");
+                    System.out.println(  "name : " + Name +
+                                       "\nType : " + Type +
+                                       "\nsex : " + Sex +
+                                       "\ncountry : " + Country +
+                                       "\nNumber : " + Number);
+                    System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                }
+            }
         } catch (IOException ex) {
-            System.err.println("Error writing to file: " + ex.getMessage());
+            System.err.println("Error editing file: " + ex.getMessage());
         }
+        System.out.printf("we have %dth animal of %s.....\n" , count , SearchSex);
     }
 }
