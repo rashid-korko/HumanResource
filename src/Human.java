@@ -8,7 +8,6 @@ public class Human extends Obeject {
     String SearchEthnicities;
     int count = 0;
     
-    
     void Insert(){
         try (DataOutputStream output = new DataOutputStream(new BufferedOutputStream(new FileOutputStream("Human.bin", true)))) {
             output.writeUTF(Name);
