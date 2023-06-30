@@ -1,6 +1,7 @@
 import java.io.IOException;
 public class FirstMenu {
-    public void firstmenu() throws IOException {
+    public boolean firstmenu() throws IOException {
+        boolean login_checke = false;
         System.out.println("====>Welcome to Human & Natural Resource program<====");
         System.out.print("\t1.SignUp\n"+
                          "\t2.LogIn\n"+
@@ -15,9 +16,11 @@ public class FirstMenu {
             case "2":
                 LogIn login = new LogIn();
                 login.login();
+                login_checke = true;
                 break;
             case "3":
             break;
         }
+        return login_checke;
     }
 }

@@ -1,10 +1,10 @@
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
+
+
 
 public class SignUp {
     void signup() {
-        System.out.flush();
         String UserName;
         String Password;
         String ConfirmPassword;
@@ -14,33 +14,31 @@ public class SignUp {
         String LastName;
         String Birthday;
         int n = 0;
-        Scanner scanner = new Scanner(System.in);
+        
         System.out.println("====>Welcome to the sign up page<====\n\n");
         System.out.println("Please enter a username: ");
-        UserName = scanner.nextLine();
+        UserName = KeyBoard.nextLine();
         System.out.println("Please enter a First name :");
-        FirstName = scanner.nextLine();
+        FirstName = KeyBoard.nextLine();
         System.out.println("Please enter a Last name :");
-        LastName = scanner.nextLine();
+        LastName = KeyBoard.nextLine();
         System.out.println("Please enter a Email :");
-        Email = scanner.nextLine();
+        Email = KeyBoard.nextLine();
         System.out.println("Please enter a Phone number :");
-        PhoneNumber = scanner.nextLine();
+        PhoneNumber = KeyBoard.nextLine();
         System.out.println("Please enter a Birthday (dd/mm/yyyy) :");
-        Birthday = scanner.nextLine();
+        Birthday = KeyBoard.nextLine();
         do{
             if (n > 0)
             {
                 System.out.println("your password not confirmed....");
             }
             System.out.println("Please enter a password: ");
-            Password = scanner.nextLine();
+            Password = KeyBoard.nextLine();
             System.out.print("Please confirm your password :");
-            ConfirmPassword = scanner.nextLine();
+            ConfirmPassword = KeyBoard.nextLine();
             n++;
         }while(!(Password.equals(ConfirmPassword)));
-
-        scanner.close();
 
         try (FileWriter writer = new FileWriter("UserFile.txt", true)) {
             writer.write(UserName + ":" + Password + "\n");
