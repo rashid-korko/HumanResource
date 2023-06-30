@@ -5,7 +5,8 @@ public class Animal extends Obeject {
     String Sex;
     String Number;
     String SearchSex;
-    int count = 0;
+    String SearchType;
+    
 
     void Insert(){
         try (DataOutputStream output = new DataOutputStream(new BufferedOutputStream(new FileOutputStream("Animal.bin", true)))) {
@@ -83,5 +84,57 @@ public class Animal extends Obeject {
             System.err.println("Error editing file: " + ex.getMessage());
         }
         System.out.printf("we have %dth animal of %s.....\n" , count , SearchSex);
+    }
+
+    void AnimalCountryReports(){
+        System.out.printf("this all data for %s :\n" , SearchCountry);
+        try (RandomAccessFile file = new RandomAccessFile("Animal.bin", "r")) {
+            while (file.getFilePointer() < file.length()) {
+                Name = file.readUTF();
+                Type = file.readUTF();
+                Sex = file.readUTF();
+                Country = file.readUTF();
+                Number = file.readUTF();
+                if (Country.equals(SearchCountry)) {
+                    count++;
+                    System.out.println(count + "-");
+                    System.out.println(  "name : " + Name +
+                                       "\nType : " + Type +
+                                       "\nsex : " + Sex +
+                                       "\ncountry : " + Country +
+                                       "\nNumber : " + Number);
+                    System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                }
+            }
+        } catch (IOException ex) {
+            System.err.println("Error editing file: " + ex.getMessage());
+        }
+        System.out.printf("we have %dth animal from %s.....\n" , count , SearchCountry);
+    }
+
+    void AnimalTypeReports(){
+        System.out.printf("this all data for %s :\n" , SearchType);
+        try (RandomAccessFile file = new RandomAccessFile("Animal.bin", "r")) {
+            while (file.getFilePointer() < file.length()) {
+                Name = file.readUTF();
+                Type = file.readUTF();
+                Sex = file.readUTF();
+                Country = file.readUTF();
+                Number = file.readUTF();
+                if (Type.equals(SearchType)) {
+                    count++;
+                    System.out.println(count + "-");
+                    System.out.println(  "name : " + Name +
+                                       "\nType : " + Type +
+                                       "\nsex : " + Sex +
+                                       "\ncountry : " + Country +
+                                       "\nNumber : " + Number);
+                    System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                }
+            }
+        } catch (IOException ex) {
+            System.err.println("Error editing file: " + ex.getMessage());
+        }
+        System.out.printf("we have %dth animal of this %s.....\n" , count , SearchType);
     }
 }

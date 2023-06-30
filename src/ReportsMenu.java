@@ -40,12 +40,20 @@ public class ReportsMenu {
             case "5":
                 Animal animal_country_reports = new Animal();
                 System.out.print("please enter the country of animal you want :");
-                animal_country_reports.SearchSex = KeyBoard.nextLine();
-                animal_country_reports.AnimalSexReports();
+                animal_country_reports.SearchCountry = KeyBoard.nextLine();
+                animal_country_reports.AnimalCountryReports();
                 break;
             case "6":
+                Animal animal_type_reports = new Animal();
+                System.out.print("please enter the type of animal you want :");
+                animal_type_reports.SearchType = KeyBoard.nextLine();
+                animal_type_reports.AnimalTypeReports();
                 break;
             case "7":
+                Plant plant_country_reports = new Plant();
+                System.out.print("please enter the country of plant you want :");
+                plant_country_reports.SearchCountry = KeyBoard.nextLine();
+                plant_country_reports.PlantCountryReports();
                 break;
             case "8":
                 break;

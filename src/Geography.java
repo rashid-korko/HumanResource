@@ -6,7 +6,14 @@ public class Geography extends Obeject {
     
     
     void Insert(){
-        SaveInFile(Name,Type,Country,Area);
+        try (DataOutputStream output = new DataOutputStream(new BufferedOutputStream(new FileOutputStream("Geography.bin", true)))) {
+            output.writeUTF(Name);
+            output.writeUTF(Type);
+            output.writeUTF(Country);
+            output.writeUTF(Area);
+        } catch (IOException ex) {
+            System.err.println("Error writing to file: " + ex.getMessage());
+        }
     }
 
     void Edit(){
@@ -44,14 +51,27 @@ public class Geography extends Obeject {
         }
     }
 
-    void SaveInFile(String Name,String Type,String Country,String Area){
-        try (DataOutputStream output = new DataOutputStream(new BufferedOutputStream(new FileOutputStream("Geography.bin", true)))) {
-            output.writeUTF(Name);
-            output.writeUTF(Type);
-            output.writeUTF(Country);
-            output.writeUTF(Area);
+    void PlantCountryReports(){
+        System.out.printf("this all data for %s :\n" , SearchCountry);
+        try (RandomAccessFile file = new RandomAccessFile("Geography.bin", "r")) {
+            while (file.getFilePointer() < file.length()) {
+                Name = file.readUTF();
+                Type = file.readUTF();
+                Country = file.readUTF();
+                Area = file.readUTF();
+                if (Country.equals(SearchCountry)) {
+                    count++;
+                    System.out.println(count + "-");
+                    System.out.println(  "name : " + Name +
+                                       "\nType : " + Type +
+                                       "\ncountry : " + Country +
+                                       "\nArea : " + Area);
+                    System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                }
+            }
         } catch (IOException ex) {
-            System.err.println("Error writing to file: " + ex.getMessage());
+            System.err.println("Error editing file: " + ex.getMessage());
         }
+        System.out.printf("we have %dth geography from %s.....\n" , count , SearchCountry);
     }
 }

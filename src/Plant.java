@@ -5,8 +5,16 @@ public class Plant extends Obeject {
     String Species;
     
     
+    
     void Insert(){
-        SaveInFile(Name,Country,Type,Species);
+        try (DataOutputStream output = new DataOutputStream(new BufferedOutputStream(new FileOutputStream("Plant.bin", true)))) {
+            output.writeUTF(Name);
+            output.writeUTF(Country);
+            output.writeUTF(Type);
+            output.writeUTF(Species);
+        } catch (IOException ex) {
+            System.err.println("Error writing to file: " + ex.getMessage());
+        }
     }
 
     void Edit(){
@@ -44,14 +52,27 @@ public class Plant extends Obeject {
         }
     }
 
-    void SaveInFile(String Name,String Country,String Type,String Species){
-        try (DataOutputStream output = new DataOutputStream(new BufferedOutputStream(new FileOutputStream("Plant.bin", true)))) {
-            output.writeUTF(Name);
-            output.writeUTF(Country);
-            output.writeUTF(Type);
-            output.writeUTF(Species);
+    void PlantCountryReports(){
+        System.out.printf("this all data for %s :\n" , SearchCountry);
+        try (RandomAccessFile file = new RandomAccessFile("Plant.bin", "r")) {
+            while (file.getFilePointer() < file.length()) {
+                Name = file.readUTF();
+                Country = file.readUTF();
+                Type = file.readUTF();
+                Species = file.readUTF();
+                if (Country.equals(SearchCountry)) {
+                    count++;
+                    System.out.println(count + "-");
+                    System.out.println(  "name : " + Name +
+                                       "\ncountry : " + Country +
+                                       "\nType : " + Type +
+                                       "\npecies : " + Species);
+                    System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+                }
+            }
         } catch (IOException ex) {
-            System.err.println("Error writing to file: " + ex.getMessage());
+            System.err.println("Error editing file: " + ex.getMessage());
         }
+        System.out.printf("we have %dth plant from %s.....\n" , count , SearchCountry);
     }
 }

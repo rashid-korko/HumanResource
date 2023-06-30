@@ -3,4 +3,5 @@ public class Obeject {
     String Country;
     String SearchName;
     String SearchCountry;
+    int count = 0;
 }
