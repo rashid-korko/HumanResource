@@ -13,24 +13,28 @@ public class EditDataMenu {
         String choice = KeyBoard.nextLine();
         switch (choice) {
             case "1":
+                KeyBoard.cleanScreen();
                 Human human = new Human();
                 System.out.print("enter the name you want to edit his data : ");
                 human.SearchName = KeyBoard.nextLine();
                 human.Edit();
                 break;
             case "2":
+                KeyBoard.cleanScreen();
                 Animal animal = new Animal();
                 System.out.print("enter the name you want to edit his data : ");
                 animal.SearchName = KeyBoard.nextLine();
                 animal.Edit();
                 break;
             case "3":
+                KeyBoard.cleanScreen();
                 Plant plant = new Plant();
                 System.out.print("enter the name you want to edit his data : ");
                 plant.SearchName = KeyBoard.nextLine();
                 plant.Edit();
                 break;
             case "4":
+                KeyBoard.cleanScreen();
                 Geography geography = new Geography();
                 System.out.print("enter the name you want to edit his data : ");
                 geography.SearchName = KeyBoard.nextLine();

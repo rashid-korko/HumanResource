@@ -13,6 +13,7 @@ public class NewResourceMenu {
         String choice = KeyBoard.nextLine();
         switch (choice) {
             case "1":
+                KeyBoard.cleanScreen();
                 Human human = new Human();
                 System.out.print("name: ");
                 human.Name = KeyBoard.nextLine();
@@ -27,6 +28,7 @@ public class NewResourceMenu {
                 human.Insert();
                 break;
             case "2":
+                KeyBoard.cleanScreen();
                 Animal animal = new Animal();
                 System.out.print("name: ");
                 animal.Name = KeyBoard.nextLine();
@@ -41,6 +43,7 @@ public class NewResourceMenu {
                 animal.Insert();
                 break;
             case "3":
+                KeyBoard.cleanScreen();
                 Plant plant = new Plant();
                 System.out.print("name: ");
                 plant.Name = KeyBoard.nextLine();
@@ -53,6 +56,7 @@ public class NewResourceMenu {
                 plant.Insert();
                 break;
             case "4":
+                KeyBoard.cleanScreen();
                 Geography geography = new Geography();
                 System.out.print("name: ");
                 geography.Name = KeyBoard.nextLine();

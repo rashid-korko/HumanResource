@@ -19,7 +19,7 @@ public class Human extends Obeject {
             System.err.println("Error writing to file: " + ex.getMessage());
         }
         SecondMenu secondMenu = new SecondMenu();
-        secondMenu.secondmenu();
+        secondMenu.secondmenu();    
     }
 
     void Edit() throws IOException{

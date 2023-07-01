@@ -11,9 +11,11 @@ public class FirstMenu {
         System.out.println();
         switch (choice) {
             case "1":
+                KeyBoard.cleanScreen();
                 SignUp signup = new SignUp();
                 signup.signup();
             case "2":
+                KeyBoard.cleanScreen();
                 LogIn login = new LogIn();
                 login.login();
                 login_checke = true;
