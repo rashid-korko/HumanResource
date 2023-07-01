@@ -59,6 +59,8 @@ public class Human extends Obeject {
         } catch (IOException ex) {
             System.err.println("Error editing file: " + ex.getMessage());
         }
+        System.out.println("@@@@ press enter to continue @@@@");
+        KeyBoard.nextLine();
         SecondMenu secondMenu = new SecondMenu();
         secondMenu.secondmenu();
     }
@@ -87,6 +89,8 @@ public class Human extends Obeject {
             System.err.println("Error editing file: " + ex.getMessage());
         }
         System.out.printf("we have %dth human of %s.....\n" , count , SearchSex);
+        System.out.println("@@@@ press enter to continue @@@@");
+        KeyBoard.nextLine();
         SecondMenu secondMenu = new SecondMenu();
         secondMenu.secondmenu();
     }
@@ -115,6 +119,8 @@ public class Human extends Obeject {
             System.err.println("Error editing file: " + ex.getMessage());
         }
         System.out.printf("we have %dth human from %s.....\n" , count , SearchCountry);
+        System.out.println("@@@@ press enter to continue @@@@");
+        KeyBoard.nextLine();
         SecondMenu secondMenu = new SecondMenu();
         secondMenu.secondmenu();
     }
@@ -143,6 +149,8 @@ public class Human extends Obeject {
             System.err.println("Error editing file: " + ex.getMessage());
         }
         System.out.printf("we have %dth human %s.....\n" , count , SearchEthnicities);
+        System.out.println("@@@@ press enter to continue @@@@");
+        KeyBoard.nextLine();
         SecondMenu secondMenu = new SecondMenu();
         secondMenu.secondmenu();
     }

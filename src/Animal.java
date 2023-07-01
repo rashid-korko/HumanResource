@@ -60,6 +60,8 @@ public class Animal extends Obeject {
         } catch (IOException ex) {
             System.err.println("Error editing file: " + ex.getMessage());
         }
+        System.out.println("@@@@ press enter to continue @@@@");
+        KeyBoard.nextLine();
         SecondMenu secondMenu = new SecondMenu();
         secondMenu.secondmenu();
     }
@@ -88,6 +90,8 @@ public class Animal extends Obeject {
             System.err.println("Error editing file: " + ex.getMessage());
         }
         System.out.printf("we have %dth animal of %s.....\n" , count , SearchSex);
+        System.out.println("@@@@ press enter to continue @@@@");
+        KeyBoard.nextLine();
         SecondMenu secondMenu = new SecondMenu();
         secondMenu.secondmenu();
     }
@@ -116,6 +120,8 @@ public class Animal extends Obeject {
             System.err.println("Error editing file: " + ex.getMessage());
         }
         System.out.printf("we have %dth animal from %s.....\n" , count , SearchCountry);
+        System.out.println("@@@@ press enter to continue @@@@");
+        KeyBoard.nextLine();
         SecondMenu secondMenu = new SecondMenu();
         secondMenu.secondmenu();
     }
@@ -144,6 +150,8 @@ public class Animal extends Obeject {
             System.err.println("Error editing file: " + ex.getMessage());
         }
         System.out.printf("we have %dth animal of this %s.....\n" , count , SearchType);
+        System.out.println("@@@@ press enter to continue @@@@");
+        KeyBoard.nextLine();
         SecondMenu secondMenu = new SecondMenu();
         secondMenu.secondmenu();
     }
