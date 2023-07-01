@@ -6,7 +6,7 @@ public class Plant extends Obeject {
     
     
     
-    void Insert(){
+    void Insert() throws IOException{
         try (DataOutputStream output = new DataOutputStream(new BufferedOutputStream(new FileOutputStream("Plant.bin", true)))) {
             output.writeUTF(Name);
             output.writeUTF(Country);
@@ -15,9 +15,11 @@ public class Plant extends Obeject {
         } catch (IOException ex) {
             System.err.println("Error writing to file: " + ex.getMessage());
         }
+        SecondMenu secondMenu = new SecondMenu();
+        secondMenu.secondmenu();
     }
 
-    void Edit(){
+    void Edit() throws IOException{
         try (RandomAccessFile file = new RandomAccessFile("Plant.bin", "rw")) {
             while (file.getFilePointer() < file.length()) {
                 Name = file.readUTF();
@@ -50,9 +52,11 @@ public class Plant extends Obeject {
         } catch (IOException ex) {
             System.err.println("Error editing file: " + ex.getMessage());
         }
+        SecondMenu secondMenu = new SecondMenu();
+        secondMenu.secondmenu();
     }
 
-    void PlantCountryReports(){
+    void PlantCountryReports() throws IOException{
         System.out.printf("this all data for %s :\n" , SearchCountry);
         try (RandomAccessFile file = new RandomAccessFile("Plant.bin", "r")) {
             while (file.getFilePointer() < file.length()) {
@@ -74,5 +78,7 @@ public class Plant extends Obeject {
             System.err.println("Error editing file: " + ex.getMessage());
         }
         System.out.printf("we have %dth plant from %s.....\n" , count , SearchCountry);
+        SecondMenu secondMenu = new SecondMenu();
+        secondMenu.secondmenu();
     }
 }

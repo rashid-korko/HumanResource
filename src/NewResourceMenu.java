@@ -65,6 +65,8 @@ public class NewResourceMenu {
                 geography.Insert();
                 break;
             case "5":
+                SecondMenu secondMenu = new SecondMenu();
+                secondMenu.secondmenu();
                 break;
         }
     }

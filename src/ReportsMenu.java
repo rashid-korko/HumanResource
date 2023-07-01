@@ -1,5 +1,7 @@
+import java.io.IOException;
+
 public class ReportsMenu {
-    void reportsmenu(){
+    void reportsmenu() throws IOException{
         System.out.println("====>Welcome to Human & Natural Reports main menu<====");
         System.out.print("\t1.Human sex reports\n"+
                          "\t2.Human country reports\n"+
@@ -56,8 +58,14 @@ public class ReportsMenu {
                 plant_country_reports.PlantCountryReports();
                 break;
             case "8":
+                Geography geography_country_reports = new Geography();
+                System.out.print("please enter the country of geography you want :");
+                geography_country_reports.SearchCountry = KeyBoard.nextLine();
+                geography_country_reports.GeographyCountryReports();
                 break;
             case "9":
+                SecondMenu secondMenu = new SecondMenu();
+                secondMenu.secondmenu();
                 break;
         }
     }

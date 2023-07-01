@@ -37,6 +37,8 @@ public class EditDataMenu {
                 geography.Edit();
                 break;
             case "5":
+                SecondMenu secondMenu = new SecondMenu();
+                secondMenu.secondmenu();
                 break;
         }
     }

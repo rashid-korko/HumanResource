@@ -8,7 +8,7 @@ public class Animal extends Obeject {
     String SearchType;
     
 
-    void Insert(){
+    void Insert() throws IOException{
         try (DataOutputStream output = new DataOutputStream(new BufferedOutputStream(new FileOutputStream("Animal.bin", true)))) {
             output.writeUTF(Name);
             output.writeUTF(Type);
@@ -18,9 +18,11 @@ public class Animal extends Obeject {
         } catch (IOException ex) {
             System.err.println("Error writing to file: " + ex.getMessage());
         }
+        SecondMenu secondMenu = new SecondMenu();
+        secondMenu.secondmenu();
     }
 
-    void Edit(){
+    void Edit() throws IOException{
         try (RandomAccessFile file = new RandomAccessFile("Animal.bin", "rw")) {
             while (file.getFilePointer() < file.length()) {
                 Name = file.readUTF();
@@ -58,9 +60,11 @@ public class Animal extends Obeject {
         } catch (IOException ex) {
             System.err.println("Error editing file: " + ex.getMessage());
         }
+        SecondMenu secondMenu = new SecondMenu();
+        secondMenu.secondmenu();
     }
 
-    void AnimalSexReports(){
+    void AnimalSexReports() throws IOException{
         System.out.printf("this all data for %s :\n" , SearchSex);
         try (RandomAccessFile file = new RandomAccessFile("Animal.bin", "r")) {
             while (file.getFilePointer() < file.length()) {
@@ -84,9 +88,11 @@ public class Animal extends Obeject {
             System.err.println("Error editing file: " + ex.getMessage());
         }
         System.out.printf("we have %dth animal of %s.....\n" , count , SearchSex);
+        SecondMenu secondMenu = new SecondMenu();
+        secondMenu.secondmenu();
     }
 
-    void AnimalCountryReports(){
+    void AnimalCountryReports() throws IOException{
         System.out.printf("this all data for %s :\n" , SearchCountry);
         try (RandomAccessFile file = new RandomAccessFile("Animal.bin", "r")) {
             while (file.getFilePointer() < file.length()) {
@@ -110,9 +116,11 @@ public class Animal extends Obeject {
             System.err.println("Error editing file: " + ex.getMessage());
         }
         System.out.printf("we have %dth animal from %s.....\n" , count , SearchCountry);
+        SecondMenu secondMenu = new SecondMenu();
+        secondMenu.secondmenu();
     }
 
-    void AnimalTypeReports(){
+    void AnimalTypeReports() throws IOException{
         System.out.printf("this all data for %s :\n" , SearchType);
         try (RandomAccessFile file = new RandomAccessFile("Animal.bin", "r")) {
             while (file.getFilePointer() < file.length()) {
@@ -136,5 +144,7 @@ public class Animal extends Obeject {
             System.err.println("Error editing file: " + ex.getMessage());
         }
         System.out.printf("we have %dth animal of this %s.....\n" , count , SearchType);
+        SecondMenu secondMenu = new SecondMenu();
+        secondMenu.secondmenu();
     }
 }

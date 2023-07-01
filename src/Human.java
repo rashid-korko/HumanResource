@@ -8,7 +8,7 @@ public class Human extends Obeject {
     String SearchEthnicities;
     
     
-    void Insert(){
+    void Insert() throws IOException{
         try (DataOutputStream output = new DataOutputStream(new BufferedOutputStream(new FileOutputStream("Human.bin", true)))) {
             output.writeUTF(Name);
             output.writeUTF(Sex);
@@ -18,9 +18,11 @@ public class Human extends Obeject {
         } catch (IOException ex) {
             System.err.println("Error writing to file: " + ex.getMessage());
         }
+        SecondMenu secondMenu = new SecondMenu();
+        secondMenu.secondmenu();
     }
 
-    void Edit(){
+    void Edit() throws IOException{
         try (RandomAccessFile file = new RandomAccessFile("Human.bin", "rw")) {
             while (file.getFilePointer() < file.length()) {
                 Name = file.readUTF();
@@ -57,9 +59,11 @@ public class Human extends Obeject {
         } catch (IOException ex) {
             System.err.println("Error editing file: " + ex.getMessage());
         }
+        SecondMenu secondMenu = new SecondMenu();
+        secondMenu.secondmenu();
     }
 
-    void HumanSexReports(){
+    void HumanSexReports() throws IOException{
         System.out.printf("this all data for %s :\n" , SearchSex);
         try (RandomAccessFile file = new RandomAccessFile("Human.bin", "r")) {
             while (file.getFilePointer() < file.length()) {
@@ -83,9 +87,11 @@ public class Human extends Obeject {
             System.err.println("Error editing file: " + ex.getMessage());
         }
         System.out.printf("we have %dth human of %s.....\n" , count , SearchSex);
+        SecondMenu secondMenu = new SecondMenu();
+        secondMenu.secondmenu();
     }
 
-    void HumanCountryReports(){
+    void HumanCountryReports() throws IOException{
         System.out.printf("this all data for %s :\n" , SearchCountry);
         try (RandomAccessFile file = new RandomAccessFile("Human.bin", "r")) {
             while (file.getFilePointer() < file.length()) {
@@ -109,9 +115,11 @@ public class Human extends Obeject {
             System.err.println("Error editing file: " + ex.getMessage());
         }
         System.out.printf("we have %dth human from %s.....\n" , count , SearchCountry);
+        SecondMenu secondMenu = new SecondMenu();
+        secondMenu.secondmenu();
     }
 
-    void HumanEthnicitiesReports(){
+    void HumanEthnicitiesReports() throws IOException{
         System.out.printf("this all data for %s :\n" , SearchEthnicities);
         try (RandomAccessFile file = new RandomAccessFile("Human.bin", "r")) {
             while (file.getFilePointer() < file.length()) {
@@ -135,6 +143,8 @@ public class Human extends Obeject {
             System.err.println("Error editing file: " + ex.getMessage());
         }
         System.out.printf("we have %dth human %s.....\n" , count , SearchEthnicities);
+        SecondMenu secondMenu = new SecondMenu();
+        secondMenu.secondmenu();
     }
 
 }
